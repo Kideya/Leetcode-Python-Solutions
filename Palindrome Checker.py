@@ -75,8 +75,12 @@ def SliceNumber(slicedTarget, target, potence):
     # Checking if the number is a palindrome.
     if len(slicedTarget) <= 1:
         print(f"The Number {initialTarget} is a palindrome")
+        isPalindrome = True
+        return isPalindrome
     else:
         print(f"The Number {initialTarget} is not a palindrome")
+        isPalindrome = False
+        return isPalindrome
 
 # Calling the function to split the number into digits and check for palindrome.
 SliceNumber(slicedTarget, target, CreateListLength(target))
