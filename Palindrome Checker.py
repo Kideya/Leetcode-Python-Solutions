@@ -1,9 +1,10 @@
 import math
-
-initialTarget = 112211  # The initial Integer that need to be checked
+import random
+initialTarget =  random.randrange(0,99) # The initial Integer that need to be checked
 target = initialTarget  # Variable for the calculations
-isPalindrome = None  # Variable for showing if it is a palindrome or not
+isPalindrome = False  # Variable for showing if it is a palindrome or not
 slicedTarget = []  # List for saving the digits of the target
+amountOfCycles = 0
 
 def CreateListLength(target):
     """
@@ -18,7 +19,6 @@ def CreateListLength(target):
     
     potence = 1  # Start amount for the potence
     x = 0  # Variable for calculating the power of 10.
-    
     # Calculation for the amount of digits of the target
     while x <= target:
         x = pow(10, potence)
@@ -50,7 +50,6 @@ def SliceNumber(slicedTarget, target, potence):
     """
     index = 0  # Startindex for the digits
     amountOfdigits = potence  # Amount of digits
-
     # Slicing the target into digits
     while target != 0:
         FirstTarget = target / pow(10, potence)  # Calculation for the current digit
@@ -73,13 +72,17 @@ def SliceNumber(slicedTarget, target, potence):
         
     # Checking if the number is a palindrome.
     if len(slicedTarget) <= 1:
-        print(f"The Number {initialTarget} is a palindrome")
-        isPalindrome = True
-        return isPalindrome
+        return True
     else:
-        print(f"The Number {initialTarget} is not a palindrome")
-        isPalindrome = False
-        return isPalindrome
+        return False
 
-# Calling the function to split the number into digits and check for palindrome.
-SliceNumber(slicedTarget, target, CreateListLength(target))
+#Generates a Number and checks it till a palindrome is found
+while not isPalindrome:
+    # Calling the function to split the number into digits and check for palindrome.
+    initialTarget = random.randrange(0,9999)
+    isPalindrome = SliceNumber(slicedTarget, initialTarget, CreateListLength(initialTarget))
+    if isPalindrome:
+        print(f"The Number {initialTarget} is a palindrome and found after {amountOfCycles} cycles")
+    slicedTarget = []
+    
+    amountOfCycles += 1
