@@ -1,6 +1,6 @@
 import math
 
-initialTarget = 12011021  # The initial Integer that need to be checked
+initialTarget = 112211  # The initial Integer that need to be checked
 target = initialTarget  # Variable for the calculations
 isPalindrome = None  # Variable for showing if it is a palindrome or not
 slicedTarget = []  # List for saving the digits of the target
@@ -27,7 +27,6 @@ def CreateListLength(target):
     if x >= target:
         potence -= 1
         listLength = potence 
-        print(f"The Number has {potence} digits")
         
     #Initializing the List for storing the digits
     while listLength > 0:
