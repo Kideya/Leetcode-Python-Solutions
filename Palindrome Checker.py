@@ -1,5 +1,5 @@
 import math
-target = 120032940
+target = 12321
 isPalindrome = None
 slicedTarget = []
 
@@ -26,7 +26,7 @@ def CreateListLength(target):
 
 def sliceNumber(slicedTarget,target,potence):
     index = 0
-    while target > 10:
+    while target != 0:
         FirstTarget = target / pow(10,potence)
         FirstTarget = math.floor(FirstTarget)
         target -= FirstTarget * pow(10,potence)
@@ -35,10 +35,13 @@ def sliceNumber(slicedTarget,target,potence):
         index += 1
         print(FirstTarget,slicedTarget) 
     
-    for x in range(len(slicedTarget)):
-        if isinstance(slicedTarget[x],str):
-            slicedTarget[x] = 0
-            print(slicedTarget)
+    # for x in range(len(slicedTarget)):
+    #     if isinstance(slicedTarget[x],str):
+    #         slicedTarget[x] = 0
+    #         print(slicedTarget)
         
-    
+    # if slicedTarget[len(slicedTarget)-1] == slicedTarget[0]:
+    #     del slicedTarget[len(slicedTarget)-1]
+    #     print(slicedTarget)
+        
 sliceNumber(slicedTarget,target,CreateListLength(target))
