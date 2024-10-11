@@ -67,7 +67,6 @@ def SliceNumber(slicedTarget, target, potence):
         
         # Break when only one digit is left.
         if len(slicedTarget) <= 1:
-            print(f"Länge:{len(slicedTarget)}")
             break
         
     # Checking if the number is a palindrome.
@@ -79,10 +78,9 @@ def SliceNumber(slicedTarget, target, potence):
 #Generates a Number and checks it till a palindrome is found
 while not isPalindrome:
     # Calling the function to split the number into digits and check for palindrome.
-    initialTarget = random.randrange(0,9999)
+    initialTarget = random.randrange(0,999)
     isPalindrome = SliceNumber(slicedTarget, initialTarget, CreateListLength(initialTarget))
     if isPalindrome:
         print(f"The Number {initialTarget} is a palindrome and found after {amountOfCycles} cycles")
     slicedTarget = []
-    
     amountOfCycles += 1
